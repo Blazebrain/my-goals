@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[900],
+      backgroundColor: Color(0xFF1C4446),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -56,8 +56,9 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Text(
                 'David Adegoke',
                 style: TextStyle(
-                  fontFamily: 'Source Sans Pro',
-                  fontSize: 30.0,
+                  fontFamily: 'Poppins',
+                  fontSize: 36.0,
+                  fontWeight: FontWeight.w300,
                   color: Colors.white,
                 ),
               ),
@@ -65,8 +66,9 @@ class _SplashScreenState extends State<SplashScreen> {
             Text(
               "goals",
               style: TextStyle(
-                fontFamily: 'Source Sans Pro',
-                fontSize: 15.0,
+                fontFamily: 'Proffins',
+                fontWeight: FontWeight.w500,
+                fontSize: 24.0,
                 color: Colors.white,
               ),
             ),
