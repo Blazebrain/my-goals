@@ -12,19 +12,28 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green[900],
-          title: Text(
-            'My goals',
-            style: TextStyle(
-              fontFamily: 'Source Sans Pro',
-              fontSize: 18.0,
-            ),
+          backgroundColor: Color(0xFF1C4446),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                'My goals',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.0,
+                ),
+              ),
+              CircleAvatar(
+                backgroundImage: AssetImage('images/passport.jpg'),
+                radius: 16,
+              )
+            ],
           ),
         ),
         body: Container(
-          margin: EdgeInsets.only(left: 10.0, right: 15.0),
+          margin: EdgeInsets.only(left: 16.0, right: 16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Expanded(
@@ -33,19 +42,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     Text(
                       'When:',
                       style: TextStyle(
-                        fontFamily: 'Source Sans Pro',
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Proffins',
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF000000),
                       ),
                     ),
                     SizedBox(
-                      width: 7.0,
+                      width: 6.0,
                     ),
                     Text(
                       goalsBrain.getDate(),
                       style: TextStyle(
-                        fontFamily: 'Source Sans Pro',
-                        fontSize: 17.0,
+                        fontFamily: 'Proffins',
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.normal,
                       ),
                     ),
                   ],
@@ -60,21 +71,26 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         'What:',
                         style: TextStyle(
-                          fontFamily: 'Source Sans Pro',
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Proffins',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
                     Container(
-                      color: Colors.white,
-                      height: 92,
-                      width: 400,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5),
+                        ),
+                      ),
+                      height: 90,
+                      width: 328,
                       padding: EdgeInsets.all(8),
                       child: Text(
                         goalsBrain.getWhat(),
                         style: TextStyle(
-                          fontFamily: 'Source Sans Pro',
+                          fontFamily: 'Proffins',
                           fontSize: 15.0,
                         ),
                       ),
@@ -91,22 +107,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         'Where:',
                         style: TextStyle(
-                          fontFamily: 'Source Sans Pro',
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Proffins',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
                     Container(
-                      height: 60.0,
-                      width: 350,
-                      color: Colors.white,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5),
+                        ),
+                      ),
+                      height: 56.0,
+                      width: 328,
                       padding: EdgeInsets.all(8),
                       child: Text(
                         goalsBrain.getWhere(),
                         style: TextStyle(
-                          fontFamily: 'Source Sans Pro',
-                          fontSize: 15.0,
+                          fontFamily: 'Proffins',
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -122,21 +143,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         'How:',
                         style: TextStyle(
-                          fontFamily: 'Source Sans Pro',
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Proffins',
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
                     Container(
-                      height: 80.0,
-                      color: Colors.white,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5),
+                        ),
+                      ),
+                      height: 80,
+                      width: 328,
                       padding: EdgeInsets.all(8),
                       child: Text(
                         goalsBrain.getHow(),
                         style: TextStyle(
-                          fontFamily: 'Source Sans Pro',
-                          fontSize: 15.0,
+                          fontFamily: 'Proffins',
+                          fontSize: 14.0,
                         ),
                       ),
                     ),
@@ -147,61 +174,110 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    IconButton(
-                        icon: Icon(
-                          Icons.looks_one,
-                          size: 60,
-                        ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: FlatButton(
+                          color: Color(0xFF1C4446),
+                          onPressed: () {
+                            setState(() {
+                              goalsBrain.firstPage();
+                            });
+                          },
+                          child: Text(
+                            '1',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          )),
+                    ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: FlatButton(
+                        color: Color(0xFF1C4446),
                         onPressed: () {
                           setState(() {
-                            HomeScreen();
-                            goalsBrain.firstPage();
-                          });
-                        }),
-                    IconButton(
-                        icon: Icon(
-                          Icons.looks_two,
-                          size: 60,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            HomeScreen();
                             goalsBrain.secondPage();
                           });
-                        }),
-                    IconButton(
-                        icon: Icon(
-                          Icons.looks_3,
-                          size: 60,
+                        },
+                        child: Text(
+                          '2',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
+                      ),
+                    ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: FlatButton(
+                        color: Color(0xFF1C4446),
                         onPressed: () {
                           setState(() {
-                            HomeScreen();
                             goalsBrain.thirdPage();
                           });
-                        }),
-                    IconButton(
-                        icon: Icon(
-                          Icons.looks_4,
-                          size: 60,
+                        },
+                        child: Text(
+                          '3',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
+                      ),
+                    ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: FlatButton(
+                        color: Color(0xFF1C4446),
                         onPressed: () {
                           setState(() {
-                            HomeScreen();
                             goalsBrain.fourthPage();
                           });
-                        }),
-                    IconButton(
-                        icon: Icon(
-                          Icons.looks_5,
-                          size: 60,
+                        },
+                        child: Text(
+                          '4',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
+                      ),
+                    ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: FlatButton(
+                        color: Color(0xFF1C4446),
                         onPressed: () {
                           setState(() {
-                            HomeScreen();
                             goalsBrain.fifthPage();
                           });
-                        }),
+                        },
+                        child: Text(
+                          '5',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
